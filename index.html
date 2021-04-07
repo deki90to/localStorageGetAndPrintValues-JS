@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input, button {
+            padding: 7px;
+            height: 40px;
+        }
+        fieldset {
+            height: 40px;
+            margin-bottom: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 id="title"> Local Storage </h1>
+        <fieldset>
+            <legend> Insert Data </legend>
+                <input type="text" id="key" placeholder="Enter Key">
+                <input type="text" id="value" placeholder="Enter Value">
+                <button type="button" id="insert"> Insert </button>
+        </fieldset>
+
+        <fieldset>
+            <legend> Output </legend>
+                <div id="output"></div>
+        </fieldset>
+</body>
+    <script>
+        const getkey = document.getElementById('key');
+        const getvalue = document.getElementById('value');
+        const getinsert = document.getElementById('insert');
+        const getoutput = document.getElementsByName('output');
+
+        getinsert.onclick = function() {
+            const key = getkey.value;
+            const value = getvalue.value;
+            console.log(key);
+            console.log(value);
+
+            if (key && value) {
+                localStorage.setItem(key, value);
+                location.reload();
+            };
+        };
+
+        for (let i = 0; i < localStorage.length; i=i+1) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+
+            getoutput.innerHTML += `${key} ${value}`;
+        };
+    </script>
+
+
+    <!-- <script src="script.js"></script> -->
+</html>
