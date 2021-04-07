@@ -19,42 +19,42 @@
 </head>
 
 <body>
-    <h1 id="title"> Local Storage </h1>
+    <h1 id="title"> <i> TEST </i></h1>
         <fieldset>
-            <legend> Insert Data </legend>
-                <input type="text" id="key" placeholder="Enter Key">
-                <input type="text" id="value" placeholder="Enter Value">
+            <legend> Enter Your First And Last Name </legend>
+                <input type="text" id="key" placeholder="First Name">
+                <input type="text" id="value" placeholder="Last Name">
                 <button type="button" id="insert"> Insert </button>
         </fieldset>
 
-        <fieldset>
-            <legend> Output </legend>
+        <!-- <fieldset> -->
+            <h2><legend> Output </legend></h2>
                 <div id="output"></div>
         </fieldset>
 </body>
     <script>
-        const getkey = document.getElementById('key');
-        const getvalue = document.getElementById('value');
-        const getinsert = document.getElementById('insert');
-        const getoutput = document.getElementsByName('output');
+        const getKey = document.getElementById('key');
+        const getValue = document.getElementById('value');
+        const getInsert = document.getElementById('insert');
+        const getOutput = document.getElementsByName('output');
 
-        getinsert.onclick = function() {
-            const key = getkey.value;
-            const value = getvalue.value;
+        getInsert.onclick = function() {
+            const key = getKey.value;
+            const value = getValue.value;
             console.log(key);
             console.log(value);
 
             if (key && value) {
                 localStorage.setItem(key, value);
                 location.reload();
-            };
+            }
         };
 
         for (let i = 0; i < localStorage.length; i=i+1) {
-            const key = localStorage.key(i);
-            const value = localStorage.getItem(key);
+            const outputKey = localStorage.key(i);
+            const outputValue = localStorage.getItem(outputKey);
 
-            getoutput.innerHTML += `${key} ${value}`;
+            output.innerHTML += `${outputKey} ${outputValue}<br><br>`;
         };
     </script>
 
